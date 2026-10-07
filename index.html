@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LSW · Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ============ SPLASH / 开场 ============ -->
+<div id="splash" class="splash">
+  <div class="splash-terminal">
+    <div class="terminal-line" id="term-1"></div>
+    <div class="terminal-line" id="term-2"></div>
+    <div class="terminal-line" id="term-3"></div>
+  </div>
+
+  <div class="splash-logo-wrap">
+    <div class="splash-logo">LSW</div>
+    <div class="splash-sub" data-i18n="splashSub">WORKSHOP / 工作室</div>
+    <div class="splash-tag" data-i18n="splashTag">正在把一些奇怪的东西凑在一起…</div>
+  </div>
+
+  <button class="splash-enter" id="splashEnter" data-i18n="enter">
+    [ ENTER ]
+  </button>
+
+  <canvas id="splashCanvas"></canvas>
+</div>
+
+<!-- ============ 顶部导航栏 ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">LSW<span class="nav-dot"></span></div>
+  <div class="nav-links">
+    <a href="#meet" data-i18n="navMeet">Meet</a>
+    <a href="#workshops" data-i18n="navWorkshops">Workshops</a>
+    <a href="#how" data-i18n="navHow">How</a>
+    <a href="#now" data-i18n="navNow">Now</a>
+    <a href="#elsewhere" data-i18n="navElsewhere">Elsewhere</a>
+  </div>
+  <button class="lang-toggle" id="langToggle">中 / EN</button>
+</nav>
+
+<!-- ============ 左侧粘性目录 ============ -->
+<aside class="side-toc" id="sideToc">
+  <div class="toc-title mono" data-i18n="tocTitle">CONTENTS</div>
+  <ol class="toc-list">
+    <li class="toc-item" data-target="meet">
+      <span class="toc-idx mono">01</span>
+      <span class="toc-label" data-i18n="tocMeet">Meet Me</span>
+    </li>
+    <li class="toc-item" data-target="workshops">
+      <span class="toc-idx mono">02</span>
+      <span class="toc-label" data-i18n="tocWs">Workshops</span>
+    </li>
+    <li class="toc-item" data-target="how">
+      <span class="toc-idx mono">03</span>
+      <span class="toc-label" data-i18n="tocHow">How I Make</span>
+    </li>
+    <li class="toc-item" data-target="now">
+      <span class="toc-idx mono">04</span>
+      <span class="toc-label" data-i18n="tocNow">Currently</span>
+    </li>
+    <li class="toc-item" data-target="elsewhere">
+      <span class="toc-idx mono">05</span>
+      <span class="toc-label" data-i18n="tocEl">Elsewhere</span>
+    </li>
+  </ol>
+  <div class="toc-footer mono">
+    <span class="toc-led"></span>
+    <span id="tocName" data-i18n="tocName">李世雯 / LI SHIWEN</span>
+  </div>
+</aside>
+
+<main id="mainContent">
+
+<!-- ============ 01. MEET ME ============ -->
+<section id="meet" class="section hero">
+  <div class="hero-grid">
+    <div class="hero-ip">
+      <div class="ip-frame">
+        <img id="heroIpImg" src="assets/ip.png" alt="Shih-Wen / Brandy" onerror="this.style.display='none';document.getElementById('heroIpFallback').style.display='flex'"/>
+        <div class="ip-fallback" id="heroIpFallback">
+          <div class="ip-placeholder mono">
+            <div>IP IMAGE</div>
+            <div class="ip-placeholder-sub">loading assets/ip.png…</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-chips">
+        <span class="chip chip-r">HARDWARE</span>
+        <span class="chip chip-g">AI</span>
+        <span class="chip chip-o">PCB</span>
+        <span class="chip chip-b">3D</span>
+        <span class="chip chip-g">MAKER</span>
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <div class="hero-hi" data-i18n="heroHi">Hi, 我是李世雯.</div>
+      <h1 class="hero-title">
+        <span data-i18n="heroTitle1">我喜欢做东西。</span><br/>
+        <span class="hero-dim" data-i18n="heroTitle2">有时候有用。</span><br/>
+        <span class="hero-dim" data-i18n="heroTitle3">有时候很奇怪。</span><br/>
+        <span class="hero-accent" data-i18n="heroTitle4">通常两者兼有。</span>
+      </h1>
+      <p class="hero-desc" data-i18n="heroDesc">
+        在硬件、软件、AI 和产品之间来回蹦跶。大部分时候我靠「做」来学习——这个工作坊就是这个过程的记录。
+      </p>
+      <div class="hero-meta">
+        <div><span class="mono">EXP</span><span data-i18n="heroMeta1">4 段实习经历</span></div>
+        <div><span class="mono">WS</span><span data-i18n="heroMeta2">18+ 个 Workshop</span></div>
+        <div><span class="mono">SHOW</span><span data-i18n="heroMeta3">3+ 个线下展会</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" data-i18n="scroll">↓ 向下逛逛看看做过的东西 / Scroll</div>
+</section>
+
+<!-- ============ 02. WORKSHOPS ============ -->
+<section id="workshops" class="section workshops">
+  <div class="section-head">
+    <div class="section-num mono">02</div>
+    <h2 class="section-title" data-i18n="wsTitle">WORKSHOPS / 我做过的</h2>
+    <p class="section-sub" data-i18n="wsSub">一些我做过、测过、拆过、焊过的东西。点卡片直接跳转到对应项目页面 / 视频 / 教程。</p>
+  </div>
+  <div class="ws-grid" id="wsGrid"></div>
+</section>
+
+<!-- ============ 03. HOW I MAKE ============ -->
+<section id="how" class="section how">
+  <div class="section-head">
+    <div class="section-num mono">03</div>
+    <h2 class="section-title" data-i18n="howTitle">HOW I MAKE / 我怎么做东西</h2>
+    <p class="section-sub" data-i18n="howSub">做东西会用到的工具、方法和技术栈。/ The tools, methods and stacks.</p>
+  </div>
+
+  <!-- 5个主卡片 -->
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-icon">⚡</div>
+      <h3>BUILD</h3>
+      <p data-i18n="howBuildD">硬件 · PCB · 嵌入式 · 传感器 · 焊接 · 电气。电路板、焊台、飞线——从元件到原型。</p>
+      <div class="how-chips">
+        <span class="mini-chip">ESP32</span><span class="mini-chip">STM32</span><span class="mini-chip">C51</span>
+        <span class="mini-chip">Arduino</span><span class="mini-chip">PCB</span><span class="mini-chip">Soldering</span>
+        <span class="mini-chip">Sensors</span><span class="mini-chip">Relay</span>
+      </div>
+    </div>
+
+    <div class="how-card">
+      <div class="how-icon">🧰</div>
+      <h3>MAKE</h3>
+      <p data-i18n="howMakeD">3D 打印 · 建模 · 产品 · 玩具 · 桌面设备。Nomad · Fusion · Procreate——拆件、打磨、上色。</p>
+      <div class="how-chips">
+        <span class="mini-chip">Fusion 360</span><span class="mini-chip">Nomad</span><span class="mini-chip">Procreate</span>
+        <span class="mini-chip">3D Print</span><span class="mini-chip">Sanding</span><span class="mini-chip">Painting</span>
+      </div>
+    </div>
+
+    <div class="how-card">
+      <div class="how-icon">🧪</div>
+      <h3>EXPLORE</h3>
+      <p data-i18n="howExploreD">AI · Vibe Coding · 新平台 · 新技术 · 实验。把奇怪的想法变成能跑的 Demo。</p>
+      <div class="how-chips">
+        <span class="mini-chip">AI</span><span class="mini-chip">Vibe Coding</span><span class="mini-chip">LLM</span>
+        <span class="mini-chip">New Chips</span><span class="mini-chip">Camera</span><span class="mini-chip">BLE</span>
+      </div>
+    </div>
+
+    <div class="how-card">
+      <div class="how-icon">📡</div>
+      <h3>SHARE</h3>
+      <p data-i18n="howShareD">Bilibili · X · Hackster · 小红书 · 技术文章 · 线下分享。做了就拍出来、写出来、讲出来。</p>
+      <div class="how-chips">
+        <span class="mini-chip">Bilibili</span><span class="mini-chip">Hackster</span><span class="mini-chip">CSDN</span>
+        <span class="mini-chip">X / Twitter</span><span class="mini-chip">Xiaohongshu</span><span class="mini-chip">Talks</span>
+      </div>
+    </div>
+
+    <div class="how-card how-wide">
+      <div class="how-icon">🤝</div>
+      <h3>MEET</h3>
+      <p data-i18n="howMeetD">展会 · Hackathon · Maker 活动 · 合作。把东西带去现场，认识更多喜欢做东西的人。</p>
+      <div class="how-chips">
+        <span class="mini-chip">Kyoto IVS 2026</span><span class="mini-chip">Zhihu Expo · 北京</span><span class="mini-chip">Macau Beyond</span>
+        <span class="mini-chip">柴火 Chaihuo Talk</span><span class="mini-chip">Hackathon x2</span><span class="mini-chip">3D Print Show</span>
+        <span class="mini-chip">IoT Expo</span><span class="mini-chip">Ningbo Maker Camp</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 软件/代码补充卡 -->
+  <div class="how-extra">
+    <div class="how-extra-card">
+      <div class="how-extra-head">
+        <span class="mono">// SOFTWARE</span>
+        <span data-i18n="hwSoft">软件 / 代码</span>
+      </div>
+      <div class="how-chips extra-chips">
+        <span class="mini-chip">C</span><span class="mini-chip">C++</span><span class="mini-chip">Python</span>
+        <span class="mini-chip">HTML</span><span class="mini-chip">CSS</span><span class="mini-chip">JavaScript</span>
+        <span class="mini-chip">Vue</span><span class="mini-chip">Uni-app</span>
+        <span class="mini-chip">Node.js</span><span class="mini-chip">ECharts</span><span class="mini-chip">Three.js</span>
+        <span class="mini-chip">Aliyun IoT</span><span class="mini-chip">小程序</span><span class="mini-chip">EPLAN</span>
+        <span class="mini-chip">AI Coding</span>
+      </div>
+    </div>
+
+    <div class="how-extra-card">
+      <div class="how-extra-head">
+        <span class="mono">// INDUSTRY</span>
+        <span data-i18n="hwInd">工业 / 工程</span>
+      </div>
+      <div class="how-chips extra-chips">
+        <span class="mini-chip">6-Axis Robot Arm</span><span class="mini-chip">Electrical Wiring</span>
+        <span class="mini-chip">EPLAN Schematics</span><span class="mini-chip">Factory Know-how</span>
+        <span class="mini-chip">Product Teardown</span>
+        <span class="mini-chip">3D Printer Maintenance</span>
+        <span class="mini-chip">OPC / Product Listing</span><span class="mini-chip">SEO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04. CURRENTLY BUILDING ============ -->
+<section id="now" class="section now">
+  <div class="section-head">
+    <div class="section-num mono">04</div>
+    <h2 class="section-title" data-i18n="nowTitle">CURRENTLY BUILDING / 正在折腾</h2>
+    <p class="section-sub" data-i18n="nowSub">现在工作台上的东西。/ What's on the workbench right now.</p>
+  </div>
+
+  <div class="now-list">
+    <div class="now-item">
+      <span class="now-blink">▸</span>
+      <span data-i18n="now1">一个和 ESP32 有关的小东西 / something with ESP32</span>
+    </div>
+    <div class="now-item">
+      <span class="now-blink">▸</span>
+      <span data-i18n="now2">一个 AI 陪伴小玩意 / an AI toy companion</span>
+    </div>
+    <div class="now-item">
+      <span class="now-blink">▸</span>
+      <span data-i18n="now3">测试一个新的摄像头模组 / testing a new camera module</span>
+    </div>
+    <div class="now-item">
+      <span class="now-blink">▸</span>
+      <span data-i18n="now4">学一个大概率用不上的新技术 / learning something I probably don't need</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05. ELSEWHERE / 联系 ============ -->
+<section id="elsewhere" class="section elsewhere">
+  <div class="section-head">
+    <div class="section-num mono">05</div>
+    <h2 class="section-title" data-i18n="elTitle">ELSEWHERE / 别处也有我</h2>
+    <p class="section-sub" data-i18n="elSub">在别的平台找到我。/ I also exist elsewhere.</p>
+  </div>
+
+  <div class="el-list" id="elList">
+    <a class="el-card" href="https://github.com/lsw031105guge-bit" target="_blank" rel="noopener">
+      <div class="el-logo" data-logo="github"></div>
+      <div class="el-text">
+        <div class="el-platform">GITHUB</div>
+        <div class="el-desc" data-i18n="elGithub">where I break things with code / 用代码搞破坏的地方</div>
+      </div>
+      <span class="el-arrow">→</span>
+    </a>
+
+    <a class="el-card" href="https://www.hackster.io/lsw031105guge-bit" target="_blank" rel="noopener">
+      <div class="el-logo" data-logo="hackster"></div>
+      <div class="el-text">
+        <div class="el-platform">HACKSTER</div>
+        <div class="el-desc" data-i18n="elHackster">where I make hardware / 做硬件项目的主站</div>
+      </div>
+      <span class="el-arrow">→</span>
+    </a>
+
+    <a class="el-card" href="https://space.bilibili.com/521578615" target="_blank" rel="noopener">
+      <div class="el-logo" data-logo="bilibili"></div>
+      <div class="el-text">
+        <div class="el-platform">BILIBILI</div>
+        <div class="el-desc" data-i18n="elBili">where I show what happened / 项目过程视频</div>
+      </div>
+      <span class="el-arrow">→</span>
+    </a>
+
+    <a class="el-card" href="https://x.com/home" target="_blank" rel="noopener">
+      <div class="el-logo" data-logo="x"></div>
+      <div class="el-text">
+        <div class="el-platform">X / TWITTER</div>
+        <div class="el-desc" data-i18n="elX">where I think out loud / 碎碎念和项目动态</div>
+      </div>
+      <span class="el-arrow">→</span>
+    </a>
+
+    <a class="el-card" href="https://www.xiaohongshu.com/user/profile/62a2c4200000000021029605" target="_blank" rel="noopener">
+      <div class="el-logo" data-logo="xhs"></div>
+      <div class="el-text">
+        <div class="el-platform">小红书</div>
+        <div class="el-desc" data-i18n="elXhs">where I put some of the other stuff / 创意和产品视觉</div>
+      </div>
+      <span class="el-arrow">→</span>
+    </a>
+
+    <a class="el-card" href="https://blog.csdn.net/C2H5OH15" target="_blank" rel="noopener">
+      <div class="el-logo" data-logo="csdn"></div>
+      <div class="el-text">
+        <div class="el-platform">CSDN</div>
+        <div class="el-desc" data-i18n="elCsdn">技术文章和技术分析 / technical write-ups</div>
+      </div>
+      <span class="el-arrow">→</span>
+    </a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-line mono">© 2026 <span id="footerName" data-i18n="footerName">李世雯 · LSW</span> · WORKSHOP — built by making things.</div>
+  </footer>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
